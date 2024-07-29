@@ -5,6 +5,7 @@ private String ubicacion;
 private Teatro teatro; 
 private String noTicket; 
 private String email;
+private float presupuesto;
 
     //Constructores
 
@@ -14,15 +15,17 @@ this.nombreC = new String();
 this.ubicacion= new String();
 this.teatro=new Teatro();
 this.noTicket=new String();
-this.email=new String(); 
+this.email=new String();
+this.presupuesto=0.0f; 
 }
-public Tickets(int cantBol,String nombreC,String ubicacion,Teatro teatro, String noTicket, String email){
+public Tickets(int cantBol,String nombreC,String ubicacion,Teatro teatro, String noTicket, String email,float presupuesto){
     this.cantBol=cantBol;
     this.nombreC=nombreC;
     this.ubicacion=ubicacion;
     this.teatro=teatro;
     this.noTicket=noTicket;
     this.email=email;
+    this.presupuesto=presupuesto;
 }
 
     //sets y gets
@@ -32,6 +35,11 @@ public int getcantBol(){
 public String getubicacion(){
     return ubicacion;
 }
+public float getPresupuesto(){
+    return presupuesto;
+}
+//funciones generales
+
 public int tubicación(){
     int i=0;
     String dec = getubicacion();
@@ -64,6 +72,20 @@ if(x==3){
 }
 return money;
 }
-public String validarPresupuesto(){
-}
+public boolean validarPresupuesto(){
+    float a = getPresupuesto();
+    float b = totalmoney();
+    boolean validacion = true; 
+    if(a>=b){
+        System.out.println("Felicidades, cuenta con el dinero suficiente para pagar sus boletos");
+        validacion = true;
+    } 
+    if(a<b){
+        System.err.println("Su presupuesto es menor a la compra que desea realizar");
+        validacion = false;
+    }
+return validacion;
+}//Valida si el presupuesto es suficiente para la compra de boletos. 
+//Retorna true si es suficiente, false si no lo es.
+
 }

@@ -1,28 +1,26 @@
+import java.util.Scanner;
 public class tonta2 {
-    public static void main(String[] args) {
-        // Crear instancias de Localidad
-        Localidad balcon1 = new Localidad(50);
-        Localidad balcon2 = new Localidad(50);
-        Localidad platea = new Localidad(50);
+    public static void main(String[] args){
+        Scanner cliente = new Scanner(System.in);
+        Tickets ticket = new Tickets();
+        String nombreC,ubicacion,noTicket,email;
+        int cantBol; 
+        Teatro teatro; 
+        float presupuesto;
+        int i = 1;
+        while(i<=5){
+        System.out.println("Bienvenido! Ingrese su nombre");
+        nombreC = cliente.nextLine();
+        System.out.println("Ingrese el tipo de ubicación que desea en el teatro");
+        System.out.println("Balcon1,Balcon2 o Platea");
+        ubicacion = cliente.nextLine();
+        System.out.println("Ingrese su correo electrónico");
+        email = cliente.nextLine();
+        System.out.println("Ingrese la cantidad de boletos que desea comprar");
+        cantBol = cliente.nextInt();
+        System.out.println("Ingrese el nombre del teatro");
 
-        // Crear instancia de Teatro
-        Teatro teatro = new Teatro(balcon1, balcon2, platea);
-
-        // Crear instancia de Tickets
-        Tickets ticket = new Tickets(10, "Juan Perez", "Balcon1", teatro, "", "juan@example.com", 20000.0f);
-
-        // Validar presupuesto y disponibilidad
-        boolean presupuestoValido = ticket.validarPresupuesto();
-        boolean disponibilidadValida = ticket.validarDisponibilidad();
-
-        // Registrar venta si ambas validaciones son verdaderas
-        Tickets venta = ticket.registrarventa();
-
-        if (venta != null) {
-            System.out.println("Venta registrada exitosamente.");
-            System.out.println("Número de ticket: " + venta.generarNoTicket());
-        } else {
-            System.out.println("No se pudo registrar la venta.");
-        }
-    }
-}
+        estudiante.setClase(i, nombreString, promedio);
+        i++;}
+    
+}}

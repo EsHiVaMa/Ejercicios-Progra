@@ -1,3 +1,4 @@
+
 public class Tickets {
 private int cantBol; 
 private String nombreC;
@@ -87,5 +88,38 @@ public boolean validarPresupuesto(){
 return validacion;
 }//Valida si el presupuesto es suficiente para la compra de boletos. 
 //Retorna true si es suficiente, false si no lo es.
-
+public boolean validarDisponibilidad(){
+    Localidad cbalcon1 = teatro.getbalcon1();
+    Localidad cbalcon2 = teatro.getbalcon2();
+    Localidad cplatea = teatro.getplatea();
+    int b1 = cbalcon1.getCapacidad();
+    int b2 = cbalcon2.getCapacidad();
+    int p1 = cplatea.getCapacidad();
+    int iu = tubicación();
+    int cb = getcantBol();
+    int x = 100;
+    boolean r=true;
+    if (iu==1){
+        x = b1-cb;
+    }
+    if(iu==2){
+        x = b2-cb;
+    }
+    if(iu==3){
+        x = p1-cb;
+    }
+    if (x<6){
+        r = false;
+    }
+    return r;
+}//Valida si hay suficientes asientos disponibles en la localidad seleccionada.
+// Retorna true si hay disponibilidad, false si no la hay.
+public Tickets registrarventa() {
+        boolean a = validarPresupuesto();
+        boolean b = validarDisponibilidad();
+        if (!a || !b) {
+            return null;
+        }
+        return this;
+    }//Registra o no la venta del ticket.
 }

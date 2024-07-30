@@ -39,6 +39,11 @@ public String getubicacion(){
 public float getPresupuesto(){
     return presupuesto;
 }
+public Teatro setteatro(){
+    this.teatro=teatro;
+    return null;
+}
+
 //funciones generales
 
 public int tubicación(){
